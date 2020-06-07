@@ -8,7 +8,7 @@ void haar_wavelet::compute(int levels)
 {
 	this->levels = levels;
 	tmp.release();
-	if (img.channels() > 1)	cvtColor(img, img, CV_BGR2GRAY);
+	if (img.channels() > 1)	cvtColor(img, img, COLOR_BGR2GRAY);
 
 	int w = 1;
 	int h = 1;
@@ -32,7 +32,7 @@ void haar_wavelet::compute(int levels)
 		haar(w / pow(2, i), h / pow(2, i)); // pwo(2, i) = 2^i
 }
 
-//haar ¿şÀÌºí¸´ º¯È¯ ½Ä(±×·¹ÀÌ½ºÄÉÀÏ¿ë)
+//haar ì›¨ì´ë¸”ë¦¿ ë³€í™˜ ì‹(ê·¸ë ˆì´ìŠ¤ì¼€ì¼ìš©)
 void haar_wavelet::haar(int w, int h)
 {
 
@@ -80,7 +80,7 @@ void haar_wavelet::haar(int w, int h)
 	}
 }
 
-//±×·¹ÀÌ½ºÄÉÀÏ ÀÌ¹ÌÁö ¿şÀÌºí¸´ ¿ªº¯È¯
+//ê·¸ë ˆì´ìŠ¤ì¼€ì¼ ì´ë¯¸ì§€ ì›¨ì´ë¸”ë¦¿ ì—­ë³€í™˜
 void haar_wavelet::Inverse()
 {
 
@@ -100,7 +100,7 @@ void haar_wavelet::Inverse()
 		haar_Inverse(w / pow(2, i), h / pow(2, i)); // pwo(2, i) = 2^i
 }
 
-//haar ¿şÀÌºí¸´ ¿ªº¯È¯ ½Ä(±×·¹ÀÌ½ºÄÉÀÏ¿ë)
+//haar ì›¨ì´ë¸”ë¦¿ ì—­ë³€í™˜ ì‹(ê·¸ë ˆì´ìŠ¤ì¼€ì¼ìš©)
 void haar_wavelet::haar_Inverse(int w, int h)
 {
 
@@ -153,7 +153,7 @@ void haar_wavelet::haar_Inverse(int w, int h)
 	}
 }
 
-//ÄÃ·¯ÀÌ¹ÌÁö ¿şÀÌºí¸´ º¯È¯
+//ì»¬ëŸ¬ì´ë¯¸ì§€ ì›¨ì´ë¸”ë¦¿ ë³€í™˜
 void haar_wavelet::compute_rgb(int levels, int im)
 {
 	this->insertmode = im;
@@ -192,7 +192,7 @@ void haar_wavelet::compute_rgb(int levels, int im)
 	merge(channelsrc, 3, img);
 }
 
-//haar ¿şÀÌºí¸´ º¯È¯ ½Ä(ÄÃ·¯ÀÌ¹ÌÁö¿ë)
+//haar ì›¨ì´ë¸”ë¦¿ ë³€í™˜ ì‹(ì»¬ëŸ¬ì´ë¯¸ì§€ìš©)
 void haar_wavelet::haar_rgb(Mat* img, int w, int h)
 {
 
@@ -240,7 +240,7 @@ void haar_wavelet::haar_rgb(Mat* img, int w, int h)
 	}
 }
 
-//ÄÃ·¯ÀÌ¹ÌÁö ¿şÀÌºí¸´ ¿ªº¯È¯
+//ì»¬ëŸ¬ì´ë¯¸ì§€ ì›¨ì´ë¸”ë¦¿ ì—­ë³€í™˜
 void haar_wavelet::Inverse_rgb()
 {
 
@@ -272,7 +272,7 @@ void haar_wavelet::Inverse_rgb()
 	merge(channelsrc, 3, img);
 }
 
-//haar ¿şÀÌºí¸´ ¿ªº¯È¯ ½Ä(ÄÃ·¯ÀÌ¹ÌÁö¿ë)
+//haar ì›¨ì´ë¸”ë¦¿ ì—­ë³€í™˜ ì‹(ì»¬ëŸ¬ì´ë¯¸ì§€ìš©)
 void haar_wavelet::haar_Inverse_rgb(Mat* img, int w, int h)
 {
 
